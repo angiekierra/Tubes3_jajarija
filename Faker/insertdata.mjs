@@ -36,7 +36,7 @@ connection.connect((err) => {
     // Read the CSV file
     const results = [];
     let count = 0;
-    fs.createReadStream("person.csv")
+    fs.createReadStream("alay.csv")
       .pipe(csv())
       .on("data", (data) => {
         results.push(data);

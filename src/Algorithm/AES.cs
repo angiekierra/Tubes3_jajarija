@@ -1,8 +1,7 @@
 using System;
-using System.Linq;
-using System.Collections.Generic;
 using System.Text;
-
+using System.Collections.Generic;
+using System.Linq;
 public class AES
 {
     private static readonly byte[,] sbox = new byte[,] {
@@ -77,19 +76,29 @@ public class AES
 
     public static byte[] PadStringToMultipleOf16Bytes(string input)
     {
+        // Convert the input string to bytes
         byte[] bytes = Encoding.UTF8.GetBytes(input);
 
         int remainder = bytes.Length % 16;
         int paddingLength = remainder == 0 ? 0 : (16 - remainder);
 
-        Array.Resize(ref bytes, bytes.Length + paddingLength);
-        for (int i = bytes.Length - paddingLength; i < bytes.Length; i++)
+        // If padding is needed, add spaces to the input string
+        if (paddingLength > 0)
         {
-            bytes[i] = (byte)paddingLength; // PKCS#7 padding
+            // Calculate the new length after padding
+            int newLength = bytes.Length + paddingLength;
+            Array.Resize(ref bytes, newLength);
+
+            // Add spaces to the end of the byte array
+            for (int i = bytes.Length - paddingLength; i < bytes.Length; i++)
+            {
+                bytes[i] = (byte)' '; // Add space character
+            }
         }
 
         return bytes;
     }
+
     
     private void KeyExpansion(byte[] key)
     {
@@ -366,8 +375,10 @@ public class AES
         return blocks;
     }
 
-    public string Decrypt(byte[] encryptedData)
+    public string Decrypt(string encryptedString)
     {
+        byte[] encryptedData = Convert.FromBase64String(encryptedString);
+
         List<byte[]> blocks = SplitInputIntoBlocks(encryptedData);
         List<byte[]> decryptedBlocks = new List<byte[]>();
 
@@ -410,7 +421,11 @@ public class AES
 
         // Convert the decrypted byte array into a string using UTF-8 encoding
         string decryptedString = Encoding.UTF8.GetString(output);
+
+        decryptedString = decryptedString.TrimEnd();
+        Console.WriteLine(decryptedString);
         return decryptedString;
     }
 
 }
+
