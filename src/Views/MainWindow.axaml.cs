@@ -31,10 +31,11 @@ namespace src.Views
 
         public MainWindow()
         {
-           
+
             InitializeComponent();
             SoundPlayer musicPlayer = new SoundPlayer();
-            musicPlayer.SoundLocation = "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\song.wav";
+            string truncatedBaseDirectory = baseDirectory.Substring(0, baseDirectory.IndexOf("src", StringComparison.Ordinal));
+            musicPlayer.SoundLocation = Path.Combine(truncatedBaseDirectory, "src", "Assets","song.wav");
             musicPlayer.PlayLooping();
             DataContext = new MainWindowViewModel();
         }
@@ -87,7 +88,7 @@ namespace src.Views
             if (numblack > 8)
             {
                 imageAscii = ConvertBinaryToAscii(imageBinary);
-                
+
 
                 var imagesToCompare = dbHelper.GetAllImages();
 
@@ -245,7 +246,7 @@ namespace src.Views
         private string GetImagePath(string imageName)
         {
             string truncatedBaseDirectory = baseDirectory.Substring(0, baseDirectory.IndexOf("src", StringComparison.Ordinal));
-            return System.IO.Path.Combine(truncatedBaseDirectory, "test", "Real", imageName);
+            return Path.Combine(truncatedBaseDirectory, "test", "Real", imageName);
         }
     }
 }
