@@ -1,0 +1,112 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:src.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1050"
+        x:Class="src.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="src">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Window.Background>
+        <ImageBrush Source="avares://src/Assets/bg.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <StackPanel>
+        <Image Source="avares://src/Assets/logo.png" Width="150" Height="125" Margin="0,0,0,0"/>
+        <StackPanel Margin="0,0,0,0" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="450"/> 
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                
+                <Rectangle x:Name="imageUploaded" Fill="#917859" Grid.Column="0" Margin="15" />
+                <Rectangle x:Name="matchedImage" Fill="#917859" Grid.Column="1" Margin="15" />
+                <Border  Background="#917859" Grid.Column="2" Margin="15" CornerRadius="5">
+    <TextBlock x:Name="personDetails" Text="" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+</Border>
+            </Grid>
+            <Border Background="#917859"
+                    BorderBrush="#44382a"
+                    BorderThickness="2"
+                    CornerRadius="10"
+                    Margin="15">
+                <Grid HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Top" 
+                      Margin="15,10,15,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65"/> 
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.6*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- First Column: Button -->
+                    <Button Grid.Column="0" Content="Pilih Citra" 
+                            HorizontalAlignment="Center" 
+                            Padding="25,20,25,20"
+                            Background="#FFE6B9"    
+                            Foreground="#917859"         
+                            BorderBrush="#917859"   
+                            BorderThickness="2"        
+                            CornerRadius="5"          
+                            FontSize="14"
+                            FontWeight="900"
+                            Click="OnImageUploadClicked"/>
+
+                    <!-- Second Column: Two Radio Buttons side by side -->
+                    <Border Grid.Column="1" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton x:Name="BMRadioButton" 
+                                         Content="BM" 
+                                         Margin="5,0,5,0" 
+                                         GroupName="Algorithm"
+                                         Checked="OnAlgorithmChecked"/>
+                            <RadioButton x:Name="KMPRadioButton" 
+                                         Content="KMP" 
+                                         Margin="5,0,5,0" 
+                                         GroupName="Algorithm" 
+                                         IsChecked="True"
+                                         Checked="OnAlgorithmChecked"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Third Column: Button -->
+                    <Button x:Name="SearchButton" 
+                            Grid.Column="2" 
+                            Content="Search" 
+                            HorizontalAlignment="Center" 
+                            Padding="80,20,80,20"
+                            Background="#900000"
+                            Foreground="white"
+                            IsEnabled="False"
+                            Click="OnSearchClicked"/>
+
+                    <!-- Fourth Column: Frame with two TextBlocks -->
+                    <Border Grid.Column="3" 
+                            Background="white" 
+                            VerticalAlignment="Center" 
+                            Padding="10,10,10,10"
+                            CornerRadius="10" 
+                            Margin="0">
+                        <StackPanel>
+                            <TextBlock x:Name="executionTimeTextBlock" Text="Waktu Pencarian:" Foreground="black" Margin="3"/>
+                            <TextBlock x:Name="similarityTextBlock" Text="Persentase Kecocokan:" Foreground="black" Margin="3"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </StackPanel>
+</Window>
