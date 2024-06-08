@@ -423,7 +423,7 @@ public class AES
         string decryptedString = Encoding.UTF8.GetString(output);
 
         decryptedString = decryptedString.TrimEnd();
-        Console.WriteLine(decryptedString);
+        
         return decryptedString;
     }
 

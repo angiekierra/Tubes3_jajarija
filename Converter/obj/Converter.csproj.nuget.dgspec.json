@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj": {}
+    "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\converter\\Converter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj": {
+    "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\converter\\Converter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj",
+        "projectUniqueName": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\converter\\Converter.csproj",
         "projectName": "Converter",
-        "projectPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj",
+        "projectPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\converter\\Converter.csproj",
         "packagesPath": "C:\\Users\\Imanuel Girsang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\obj\\",
+        "outputPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\converter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Imanuel Girsang\\AppData\\Roaming\\NuGet\\NuGet.Config",

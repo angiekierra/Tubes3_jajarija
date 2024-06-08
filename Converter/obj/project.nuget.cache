@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QcK6An+avtA=",
+  "dgSpecHash": "oacZAeALXWo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj",
+  "projectFilePath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\converter\\Converter.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Imanuel Girsang\\.nuget\\packages\\avalonia\\11.0.10\\avalonia.11.0.10.nupkg.sha512",
     "C:\\Users\\Imanuel Girsang\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.0.2023020321\\avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",

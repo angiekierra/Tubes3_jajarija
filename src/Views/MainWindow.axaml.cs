@@ -15,6 +15,7 @@ using static Converter;
 using static BM;
 using static KMP;
 using static LevenshteinDistance;
+using static Alay;
 using System.Text;
 
 namespace src.Views
@@ -29,6 +30,7 @@ namespace src.Views
 
         public MainWindow()
         {
+           
             InitializeComponent();
             DataContext = new MainWindowViewModel();
         }
@@ -81,7 +83,7 @@ namespace src.Views
             if (numblack > 8)
             {
                 imageAscii = ConvertBinaryToAscii(imageBinary);
-                PrintBinaryImage(ConvertFullImageToBinary(uploadedImage));
+                
 
                 var imagesToCompare = dbHelper.GetAllImages();
 

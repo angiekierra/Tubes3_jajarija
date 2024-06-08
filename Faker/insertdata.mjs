@@ -63,6 +63,8 @@ connection.connect((err) => {
               ")"
           )
           .join(",");
+
+        
         const values = results.map((obj) => Object.values(obj)).flat();
 
         const sql = `INSERT INTO ${tableName} (${columns}) VALUES ${placeholders}`;
