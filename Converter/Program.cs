@@ -5,28 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using MySqlConnector;
 using static AES;
+using DotNetEnv;
 class EncryptDBAuto
 {
     public static async Task Main(string[] args)
     {
         byte[] key = Encoding.UTF8.GetBytes("tubesstimaterakhirohyeah12345678");
 
-        // Set these values correctly for your database server
-        var builder = new MySqlConnectionStringBuilder
-        {
-            Server = "localhost",
-            UserID = "root",
-            Password = "173146",
-            Database = "testdekripsi",
-        };
+        Env.Load("../.env");
+
+        // Ambil variabel lingkungan
+        string dbHost = Environment.GetEnvironmentVariable("DB_HOST");
+        string dbUser = Environment.GetEnvironmentVariable("DB_USER");
+        string dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+        string dbDatabase = Environment.GetEnvironmentVariable("DB_DATABASE");
+
+
+        // Bentuk connection string
+        string connectionString = $"Server={dbHost};Database={dbDatabase};User={dbUser};Password={dbPassword};";
 
         // Open a connection asynchronously
-        using var connection = new MySqlConnection(builder.ConnectionString);
+        using var connection = new MySqlConnection(connectionString);
         await connection.OpenAsync();
 
         // Create a DB command and set the SQL statement
         using var command = connection.CreateCommand();
-        command.CommandText = "SELECT * FROM encryptedbiodata;";
+        command.CommandText = "SELECT * FROM biodata;";
 
         // Execute the command and read the results
         var dataToDump = new List<Dictionary<string, object>>();
@@ -51,7 +55,7 @@ class EncryptDBAuto
         }
 
         // Insert encrypted records into the database
-        await InsertEncryptedRecords(dataToDump, builder.ConnectionString, key);
+        await InsertEncryptedRecords(dataToDump, connectionString, key);
     }
 
     public static async Task InsertEncryptedRecords(List<Dictionary<string, object>> dataToDump, string connectionString, byte[] key)
@@ -85,7 +89,7 @@ class EncryptDBAuto
                 string encryptedKewarganegaraan = EscapeAndEncryptSqlString(record["kewarganegaraan"].ToString(), aes);
 
                 // Create an SQL INSERT query with parameterized values to prevent SQL injection
-                string insertQuery = "INSERT INTO EncryptedBiodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (@NIK, @nama, @tempat_lahir, @tanggal_lahir, @jenis_kelamin, @golongan_darah, @alamat, @agama, @status_perkawinan, @pekerjaan, @kewarganegaraan);";
+                string insertQuery = "INSERT INTO biodata (NIK, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan) VALUES (@NIK, @nama, @tempat_lahir, @tanggal_lahir, @jenis_kelamin, @golongan_darah, @alamat, @agama, @status_perkawinan, @pekerjaan, @kewarganegaraan);";
 
                 // Create and configure the SQL command
                 using var command = new MySqlCommand(insertQuery, connection);
@@ -113,7 +117,7 @@ class EncryptDBAuto
     {
         // Drop the table if it exists
         using var dropCommand = connection.CreateCommand();
-        dropCommand.CommandText = "DROP TABLE IF EXISTS EncryptedBiodata;";
+        dropCommand.CommandText = "DROP TABLE IF EXISTS biodata; ";
         await dropCommand.ExecuteNonQueryAsync();
         Console.WriteLine("Existing table dropped (if it existed).");
     }
@@ -122,7 +126,7 @@ class EncryptDBAuto
     {
         // Create the new table
         using var createCommand = connection.CreateCommand();
-        createCommand.CommandText = "CREATE TABLE EncryptedBiodata (NIK varchar(255) NOT NULL, nama varchar(255), tempat_lahir varchar(255), tanggal_lahir varchar(255), jenis_kelamin varchar(255), golongan_darah varchar(255), alamat varchar(255), agama varchar(255), status_perkawinan varchar(255), pekerjaan varchar(255), kewarganegaraan varchar(255));";
+        createCommand.CommandText = "CREATE TABLE biodata (NIK varchar(255) NOT NULL, nama varchar(255), tempat_lahir varchar(255), tanggal_lahir varchar(255), jenis_kelamin varchar(255), golongan_darah varchar(255), alamat varchar(255), agama varchar(255), status_perkawinan varchar(255), pekerjaan varchar(255), kewarganegaraan varchar(255));";
         await createCommand.ExecuteNonQueryAsync();
         Console.WriteLine("New table created.");
     }

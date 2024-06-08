@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\converter\\Converter.csproj": {}
+    "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\converter\\Converter.csproj": {
+    "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\converter\\Converter.csproj",
+        "projectUniqueName": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj",
         "projectName": "Converter",
-        "projectPath": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\converter\\Converter.csproj",
-        "packagesPath": "C:\\Users\\Angelica Gurning\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\converter\\obj\\",
+        "projectPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\Converter.csproj",
+        "packagesPath": "C:\\Users\\Imanuel Girsang\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\Converter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Angelica Gurning\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Imanuel Girsang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\src.csproj": {
-                "projectPath": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\src.csproj"
+              "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\src.csproj": {
+                "projectPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\src.csproj"
               }
             }
           }
@@ -38,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -65,21 +70,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\src.csproj": {
+    "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\src.csproj",
+        "projectUniqueName": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\src.csproj",
         "projectName": "src",
-        "projectPath": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\src.csproj",
-        "packagesPath": "C:\\Users\\Angelica Gurning\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\obj\\",
+        "projectPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\src.csproj",
+        "packagesPath": "C:\\Users\\Imanuel Girsang\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Angelica Gurning\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Imanuel Girsang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -99,6 +104,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -129,6 +139,10 @@
               "target": "Package",
               "version": "[11.0.10, )"
             },
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.4.0, )"
@@ -154,7 +168,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

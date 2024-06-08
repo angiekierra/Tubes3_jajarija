@@ -43,19 +43,19 @@ class KMP
         {
             if (pattern[j] == pattern[i])
             {
-                // j+1 chars match
+
                 b[i] = j + 1;
                 i++;
                 j++;
             }
             else if (j > 0)
             {
-                // j follows matching prefix
+
                 j = b[j - 1];
             }
             else
             {
-                // no match
+
                 b[i] = 0;
                 i++;
             }

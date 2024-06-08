@@ -19,7 +19,7 @@ class AlayMatcher
         original = Regex.Replace(original, @"[u]", "u?", RegexOptions.IgnoreCase);
         original = Regex.Replace(original, @"[e]", "e?", RegexOptions.IgnoreCase);
         original = Regex.Replace(original, @"[o]", "o?", RegexOptions.IgnoreCase);
-        
+
 
         // handle ganti huruf
         original = Regex.Replace(original, @"a", "[a@4]", RegexOptions.IgnoreCase);
@@ -32,6 +32,7 @@ class AlayMatcher
         original = Regex.Replace(original, @"b", "[b8]", RegexOptions.IgnoreCase);
         original = Regex.Replace(original, @"l", "[l1]", RegexOptions.IgnoreCase);
         original = Regex.Replace(original, @"z", "[z2]", RegexOptions.IgnoreCase);
+        original = Regex.Replace(original, @"j", "[j7]", RegexOptions.IgnoreCase);
 
 
 

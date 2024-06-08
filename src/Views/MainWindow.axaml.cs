@@ -15,7 +15,7 @@ using static Converter;
 using static BM;
 using static KMP;
 using static LevenshteinDistance;
-using Avalonia.Controls.Shapes;
+using System.Text;
 
 namespace src.Views
 {
@@ -71,18 +71,45 @@ namespace src.Views
 
             var stopwatch = Stopwatch.StartNew();
             string algorithm = BMRadioButton.IsChecked == true ? "BM" : "KMP";
-            var imageBinary = GetSelectedBinary(uploadedImage, "BOTTOM");
-            string imageAscii = ConvertBinaryToAscii(imageBinary);
+            int numblack;
+            bool[] imageBinary;
+            string imageAscii;
+            // For second and third chance :)
+            bool found = false;
+            (imageBinary, numblack) = GetSelectedBinary(uploadedImage, "BOTTOM");
 
-            var imagesToCompare = dbHelper.GetAllImages();
+            if (numblack > 8)
+            {
+                imageAscii = ConvertBinaryToAscii(imageBinary);
+                PrintBinaryImage(ConvertFullImageToBinary(uploadedImage));
 
-            bool found = await SearchForExactMatchAsync(imagesToCompare, imageAscii, algorithm);
+                var imagesToCompare = dbHelper.GetAllImages();
 
+                found = await SearchForExactMatchAsync(imagesToCompare, imageAscii, algorithm);
+            }
+
+            // Search atas
             if (!found)
             {
-                var secondChance = GetSelectedBinary(uploadedImage, "TOP");
-                string asciiSecond = ConvertBinaryToAscii(secondChance);
-                found = SearchForExact2(dbImagesWithAscii, asciiSecond, algorithm);
+                (imageBinary, numblack) = GetSelectedBinary(uploadedImage, "MOSTBOT");
+
+                if (numblack > 8 && numblack != 103)
+                {
+                    imageAscii = ConvertBinaryToAscii(imageBinary);
+                    found = SearchForExact2(dbImagesWithAscii, imageAscii, algorithm);
+                }
+            }
+
+            // Search tengah
+            if (!found)
+            {
+                (imageBinary, numblack) = GetSelectedBinary(uploadedImage, "TOP");
+
+                if (numblack > 8 && numblack != 103)
+                {
+                    imageAscii = ConvertBinaryToAscii(imageBinary);
+                    found = SearchForExact2(dbImagesWithAscii, imageAscii, algorithm);
+                }
             }
 
             if (!found)
@@ -111,6 +138,8 @@ namespace src.Views
                 var dbImageBinary = ConvertFullImageToBinary(dbImage);
                 var dbImageAscii = ConvertBinaryToAscii(dbImageBinary);
 
+                dbImagesWithAscii.Add((imageEntity, dbImageAscii));
+
                 int result = algorithm == "BM" ? BmMatch(dbImageAscii, imageAscii) : KmpMatch(dbImageAscii, imageAscii);
 
                 return result != -1 ? (imageEntity, dbImage, true) : (imageEntity, dbImage, false);
@@ -126,10 +155,6 @@ namespace src.Views
                     DisplayPersonDetails(imageEntity.Name);
                     similarityTextBlock.Text = "Persentase Kecocokan: 100%";
                     return true;
-                }
-                else if (dbImage != null)
-                {
-                    dbImagesWithAscii.Add((imageEntity, ConvertBinaryToAscii(ConvertFullImageToBinary(dbImage))));
                 }
             }
 
@@ -187,22 +212,24 @@ namespace src.Views
 
         private void DisplayPersonDetails(string name)
         {
-            var person = dbHelper.GetAllPeople().FirstOrDefault(p => p.Nama == name);
+            byte[] key = Encoding.UTF8.GetBytes("tubesstimaterakhirohyeah12345678");
+            AES uhm = new AES(key);
+            var person = dbHelper.GetAllPeople().FirstOrDefault(p => AlayMatcher.IsAlayVersion(name, uhm.Decrypt(p.Nama)));
             if (person != null)
             {
                 var details = new TextBlock
                 {
-                    Text = $"Name: {person.Nama}\n" +
-                           $"NIK: {person.NIK}\n" +
-                           $"Tempat Lahir: {person.Tempat_lahir}\n" +
-                           $"Tanggal Lahir: {person.Tanggal_lahir:dd-MM-yyyy}\n" +
+                    Text = $"Name: {name}\n" +
+                           $"NIK: {uhm.Decrypt(person.NIK)}\n" +
+                           $"Tempat Lahir: {uhm.Decrypt(person.Tempat_lahir)}\n" +
+                           $"Tanggal Lahir: {uhm.Decrypt(person.Tanggal_lahir)}\n" +
                            $"Jenis Kelamin: {person.Jenis_kelamin}\n" +
-                           $"Golongan Darah: {person.Golongan_darah}\n" +
-                           $"Alamat: {person.Alamat}\n" +
-                           $"Agama: {person.Agama}\n" +
-                           $"Status Perkawinan: {person.Status_perkawinan}\n" +
-                           $"Pekerjaan: {person.Pekerjaan}\n" +
-                           $"Kewarganegaraan: {person.Kewarganegaraan}",
+                           $"Golongan Darah: {uhm.Decrypt(person.Golongan_darah)}\n" +
+                           $"Alamat: {uhm.Decrypt(person.Alamat)}\n" +
+                           $"Agama: {uhm.Decrypt(person.Agama)}\n" +
+                           $"Status Perkawinan: {uhm.Decrypt(person.Status_perkawinan)}\n" +
+                           $"Pekerjaan: {uhm.Decrypt(person.Pekerjaan)}\n" +
+                           $"Kewarganegaraan: {uhm.Decrypt(person.Kewarganegaraan)}",
                     Foreground = Brushes.Black
                 };
                 personDetails.Text = details.Text;

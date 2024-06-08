@@ -13,8 +13,8 @@ class Converter
 
         bool[] binaryImage = new bool[width * height];
 
-        int stride = width * 4; 
-        
+        int stride = width * 4;
+
         IntPtr buffer = Marshal.AllocHGlobal(height * stride);
 
         try
@@ -31,7 +31,7 @@ class Converter
                     byte g = Marshal.ReadByte(buffer, index + 1);
                     byte r = Marshal.ReadByte(buffer, index + 2);
 
-                
+
                     int gray = (int)(0.3 * r + 0.59 * g + 0.11 * b);
 
                     binaryImage[y * width + x] = gray >= 128;
@@ -40,22 +40,37 @@ class Converter
         }
         finally
         {
-   
+
             Marshal.FreeHGlobal(buffer);
         }
 
         return binaryImage;
     }
 
-    public static bool[] GetSelectedBinary(Bitmap bitmap, String type)
+    public static (bool[] abc, int count) GetSelectedBinary(Bitmap bitmap, String type)
     {
         int width = bitmap.PixelSize.Width;
         int height = bitmap.PixelSize.Height;
+        int count = 0;
 
         int startX = (int)Math.Ceiling((width - 88) / 2.0);
-        startX = startX / 8 * 8;  
+        startX = startX / 8 * 8;
 
-        int row = type == "BOTTOM" ? (int)Math.Ceiling(0.75 * height) : (int)Math.Ceiling(0.95 * height);
+        int row;
+
+        if (type == "BOTTOM")
+        {
+            row = (int)Math.Ceiling(0.75 * height);
+        }
+        else if (type == "TOP")
+        {
+            row = (int)Math.Ceiling(0.25 * height);
+        }
+        else
+        {
+            row = (int)Math.Ceiling(0.9 * height);
+        }
+
 
         if (startX < 0) startX = 0;
         if (startX + 88 > width) startX = width - 88;
@@ -76,9 +91,6 @@ class Converter
             Avalonia.PixelRect pixelRect = new(0, 0, width, height);
             bitmap.CopyPixels(pixelRect, buffer, height * stride, stride);
 
-
-
-
             for (int x = 0; x < 88; x++)
             {
                 int index = (row - 1) * stride + ((x + startX) * 4); // RGBA - 4 bytes per pixel
@@ -90,6 +102,11 @@ class Converter
                 int gray = (int)(0.3 * r + 0.59 * g + 0.11 * b);
 
                 binaryImage[x] = gray >= 128;
+
+                if (!binaryImage[x])
+                {
+                    count++;
+                }
             }
         }
         finally
@@ -98,7 +115,7 @@ class Converter
             Marshal.FreeHGlobal(buffer);
         }
 
-        return binaryImage;
+        return (binaryImage, count);
     }
 
     public static string ConvertBinaryToAscii(bool[] binary)

@@ -14,7 +14,7 @@ public class PersonRecord
     public required string NIK { get; set; }
     public required string Nama { get; set; }
     public required string Tempat_lahir { get; set; }
-    public DateTime Tanggal_lahir { get; set; }
+    public required string Tanggal_lahir { get; set; }
     public required string Jenis_kelamin { get; set; }
     public required string Golongan_darah { get; set; }
     public required string Alamat { get; set; }
@@ -77,7 +77,7 @@ public class DatabaseHelper
                             NIK = reader.GetString("NIK"),
                             Nama = reader.GetString("nama"),
                             Tempat_lahir = reader.GetString("tempat_lahir"),
-                            Tanggal_lahir = reader.GetDateTime("tanggal_lahir"),
+                            Tanggal_lahir = reader.GetString("tanggal_lahir"),
                             Jenis_kelamin = reader.GetString("jenis_kelamin"),
                             Golongan_darah = reader.GetString("golongan_darah"),
                             Alamat = reader.GetString("alamat"),
