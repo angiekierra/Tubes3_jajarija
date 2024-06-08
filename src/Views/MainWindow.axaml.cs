@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Media;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
@@ -30,6 +31,9 @@ namespace src.Views
         public MainWindow()
         {
             InitializeComponent();
+            SoundPlayer musicPlayer = new SoundPlayer();
+            musicPlayer.SoundLocation = "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\song.wav";
+            musicPlayer.PlayLooping();
             DataContext = new MainWindowViewModel();
         }
 
