@@ -36,6 +36,9 @@ namespace src.Views
             imageUploaded.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory,"src/Assets/reference.png")) };
             matchedImage.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory,"src/Assets/result.png")) };
             DataContext = new MainWindowViewModel();
+            answersData.IsVisible = false;
+            loading.IsVisible = false;
+            notFound.IsVisible = false;
         }
 
         private async void OnImageUploadClicked(object sender, RoutedEventArgs e)
@@ -74,9 +77,13 @@ namespace src.Views
 
         private async void OnSearchClicked(object sender, RoutedEventArgs e)
         {
+            answersData.IsVisible = false;
+            matchedImage.Fill = new SolidColorBrush(Color.Parse("#917859"));
             if (uploadedImage == null) return;
-            EnableSearchButtonIfReady();
-
+            SearchButton.IsEnabled = false;
+            executionTimeTextBlock.Text = "Waktu Pencarian:";
+            similarityTextBlock.Text = "Persentase Kecocokan:";
+            loading.IsVisible = true;
             string algorithm = BMRadioButton.IsChecked == true ? "BM" : "KMP";
             int numblack;
             bool[] imageBinary;
@@ -128,8 +135,8 @@ namespace src.Views
             }
 
             stopwatch.Stop();
-            EnableSearchButtonIfReady();
-
+            SearchButton.IsEnabled = true;
+            loading.IsVisible = false;
             executionTimeTextBlock.Text = $"Waktu Pencarian: {stopwatch.ElapsedMilliseconds} ms";
         }
 
@@ -222,12 +229,14 @@ namespace src.Views
             }
             else
             {
+                notFound.IsVisible = true;
                 similarityTextBlock.Text = "Persentase Kecocokan: 0%";
             }
         }
 
         private void DisplayPersonDetails(string name)
         {
+            answersData.IsVisible = true;
             byte[] key = Encoding.UTF8.GetBytes("tubesstimaterakhirohyeah12345678");
             AES uhm = new AES(key);
             var person = dbHelper.GetAllPeople().FirstOrDefault(p => AlayMatcher.IsAlayVersion(name, uhm.Decrypt(p.Nama)));
@@ -272,6 +281,10 @@ namespace src.Views
         {
             string truncatedBaseDirectory = baseDirectory.Substring(0, baseDirectory.IndexOf("src", StringComparison.Ordinal));
             return Path.Combine(truncatedBaseDirectory, "test", "Real", imageName);
+        }
+
+        private void closeNotFoundPanel(object sender, RoutedEventArgs e){
+            notFound.IsVisible = false;
         }
     }
 }

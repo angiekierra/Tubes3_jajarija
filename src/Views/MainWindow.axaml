@@ -9,179 +9,196 @@
     <UserControl.Background>
         <ImageBrush Source="avares://src/Assets/bg.png" Stretch="UniformToFill"/>
     </UserControl.Background>
-    <StackPanel>
-        <Image Source="avares://src/Assets/logo.png" Width="150" Height="125" Margin="0,0,0,0"/>
-        <StackPanel Margin="0,0,0,0" >
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="450"/> 
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80*" />
-                    <ColumnDefinition Width="80*" />
-                    <ColumnDefinition Width="105*" />
-                </Grid.ColumnDefinitions>
-                
-                <Rectangle x:Name="imageUploaded" Fill="#917859" Grid.Column="0" Margin="15" />
-                <Rectangle x:Name="matchedImage" Fill="#917859" Grid.Column="1" Margin="15" />
-                <StackPanel Grid.Column="2" Margin="15" >
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Image Source="avares://src/Assets/biodata.png" Stretch="UniformToFill"/>
-                        <StackPanel Margin="0,40,0,0">
-                            <Grid Margin="15">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.4*" />
-                                    <ColumnDefinition Width="0.6*" />
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock x:Name="namaTitle" Grid.Row="0" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="NAMA" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="0" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="namaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold" />
-                                </Border>
-
-                                <TextBlock x:Name="nikTitle" Grid.Row="1" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="NIK" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="nikData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="tempatLahirTitle" Grid.Row="2" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="TEMPAT LAHIR" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="2" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="tempatLahirData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="tanggalLahirTitle" Grid.Row="3" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="TANGGAL LAHIR" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="3" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="tanggalLahirData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="genderTitle" Grid.Row="4" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="JENIS KELAMIN" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="4" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="genderData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="goldarTitle" Grid.Row="5" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="GOLONGAN DARAH" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="5" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="goldarData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="alamatTitle" Grid.Row="6" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="ALAMAT" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="6" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="alamatData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="agamaTitle" Grid.Row="7" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="AGAMA" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="7" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="agamaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="kawinTitle" Grid.Row="8" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="STATUS PERKAWINAN" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="8" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="kawinData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="pekerjaanTitle" Grid.Row="9" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="PEKERJAAN" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="9" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="pekerjaanData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-
-                                <TextBlock x:Name="wargaTitle" Grid.Row="10" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="KEWARGANEGARAAN" Padding="5" Margin="0,5,0,0"/>
-                                <Border Grid.Row="10" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="wargaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
-                                </Border>
-                            </Grid>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-            <Border Background="#917859"
-                    BorderBrush="#44382a"
-                    BorderThickness="2"
-                    CornerRadius="10"
-                    Margin="15">
-                <Grid HorizontalAlignment="Stretch" 
-                      VerticalAlignment="Top" 
-                      Margin="15,10,15,10">
+    <Grid>
+        <StackPanel>
+            <Image Source="avares://src/Assets/logo.png" Width="150" Height="125" Margin="0,0,0,0"/>
+            <StackPanel Margin="0,0,0,0" >
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="65"/> 
+                        <RowDefinition Height="450"/> 
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*"/>
-                        <ColumnDefinition Width="0.6*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="80*" />
+                        <ColumnDefinition Width="80*" />
+                        <ColumnDefinition Width="105*" />
                     </Grid.ColumnDefinitions>
+                    
+                    <Rectangle x:Name="imageUploaded" Fill="#917859" Grid.Column="0" Margin="15" />
+                    <Rectangle x:Name="matchedImage" Fill="#917859" Grid.Column="1" Margin="15" />
+                    <StackPanel Grid.Column="2" Margin="15" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Image Source="avares://src/Assets/biodata.png" Stretch="UniformToFill"/>
+                            <StackPanel Margin="0,40,0,0" >
+                                <Grid Margin="15" x:Name="answersData" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.4*" />
+                                        <ColumnDefinition Width="0.6*" />
+                                    </Grid.ColumnDefinitions>
 
-                    <!-- First Column: Button -->
-                    <Button Grid.Column="0" Content="Pilih Citra" 
-                            HorizontalAlignment="Center" 
-                            Padding="25,20,25,20"
-                            Background="#FFE6B9"    
-                            Foreground="#917859"         
-                            BorderBrush="#917859"   
-                            BorderThickness="2"        
-                            CornerRadius="5"          
-                            FontSize="14"
-                            FontWeight="900"
-                            Click="OnImageUploadClicked"/>
+                                    <TextBlock x:Name="namaTitle" Grid.Row="0" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="NAMA" Padding="5" Margin="0,5,0,0" />
+                                    <Border Grid.Row="0" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="namaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold" />
+                                    </Border>
 
-                    <!-- Second Column: Two Radio Buttons side by side -->
-                    <Border Grid.Column="1" HorizontalAlignment="Center">
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton x:Name="BMRadioButton" 
-                                         Content="BM" 
-                                         Margin="5,0,5,0" 
-                                         GroupName="Algorithm"
-                                         Checked="OnAlgorithmChecked"/>
-                            <RadioButton x:Name="KMPRadioButton" 
-                                         Content="KMP" 
-                                         Margin="5,0,5,0" 
-                                         GroupName="Algorithm" 
-                                         IsChecked="True"
-                                         Checked="OnAlgorithmChecked"/>
-                        </StackPanel>
-                    </Border>
+                                    <TextBlock x:Name="nikTitle" Grid.Row="1" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="NIK" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="nikData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
 
-                    <!-- Third Column: Button -->
-                    <Button x:Name="SearchButton" 
-                            Grid.Column="2" 
-                            Content="Search" 
-                            HorizontalAlignment="Center" 
-                            Padding="80,20,80,20"
-                            Background="#900000"
-                            Foreground="white"
-                            IsEnabled="False"
-                            Click="OnSearchClicked"/>
+                                    <TextBlock x:Name="tempatLahirTitle" Grid.Row="2" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="TEMPAT LAHIR" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="2" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="tempatLahirData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
 
-                    <!-- Fourth Column: Frame with two TextBlocks -->
-                    <Border Grid.Column="3" 
-                            Background="white" 
-                            VerticalAlignment="Center" 
-                            Padding="10,10,10,10"
-                            CornerRadius="10" 
-                            Margin="0">
-                        <StackPanel>
-                            <TextBlock x:Name="executionTimeTextBlock" Text="Waktu Pencarian:" Foreground="black" Margin="3"/>
-                            <TextBlock x:Name="similarityTextBlock" Text="Persentase Kecocokan:" Foreground="black" Margin="3"/>
-                        </StackPanel>
-                    </Border>
+                                    <TextBlock x:Name="tanggalLahirTitle" Grid.Row="3" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="TANGGAL LAHIR" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="3" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="tanggalLahirData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
+
+                                    <TextBlock x:Name="genderTitle" Grid.Row="4" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="JENIS KELAMIN" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="4" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="genderData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
+
+                                    <TextBlock x:Name="goldarTitle" Grid.Row="5" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="GOLONGAN DARAH" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="5" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="goldarData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
+
+                                    <TextBlock x:Name="alamatTitle" Grid.Row="6" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="ALAMAT" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="6" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="alamatData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
+
+                                    <TextBlock x:Name="agamaTitle" Grid.Row="7" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="AGAMA" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="7" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="agamaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
+
+                                    <TextBlock x:Name="kawinTitle" Grid.Row="8" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="PERKAWINAN" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="8" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="kawinData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
+
+                                    <TextBlock x:Name="pekerjaanTitle" Grid.Row="9" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="PEKERJAAN" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="9" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="pekerjaanData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
+
+                                    <TextBlock x:Name="wargaTitle" Grid.Row="10" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="KEWARGANEGARAAN" Padding="5" Margin="0,5,0,0"/>
+                                    <Border Grid.Row="10" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
+                                        <TextBlock x:Name="wargaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
+                                    </Border>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
                 </Grid>
-            </Border>
+                <Border Background="#917859"
+                        BorderBrush="#44382a"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="15">
+                    <Grid HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Top" 
+                        Margin="15,10,15,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="65"/> 
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.6*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- First Column: Button -->
+                        <Button Grid.Column="0" Content="Pilih Citra" 
+                                HorizontalAlignment="Center" 
+                                Padding="25,20,25,20"
+                                Background="#FFE6B9"    
+                                Foreground="#917859"         
+                                BorderBrush="#917859"   
+                                BorderThickness="2"        
+                                CornerRadius="5"          
+                                FontSize="14"
+                                FontWeight="900"
+                                Click="OnImageUploadClicked"/>
+
+                        <!-- Second Column: Two Radio Buttons side by side -->
+                        <Border Grid.Column="1" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton x:Name="BMRadioButton" 
+                                            Content="BM" 
+                                            Margin="5,0,5,0" 
+                                            GroupName="Algorithm"
+                                            Checked="OnAlgorithmChecked"/>
+                                <RadioButton x:Name="KMPRadioButton" 
+                                            Content="KMP" 
+                                            Margin="5,0,5,0" 
+                                            GroupName="Algorithm" 
+                                            IsChecked="True"
+                                            Checked="OnAlgorithmChecked"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Third Column: Button -->
+                        <Button x:Name="SearchButton" 
+                                Grid.Column="2" 
+                                Content="Search" 
+                                HorizontalAlignment="Center" 
+                                Padding="80,20,80,20"
+                                Background="#900000"
+                                Foreground="white"
+                                IsEnabled="False"
+                                Click="OnSearchClicked"/>
+
+                        <!-- Fourth Column: Frame with two TextBlocks -->
+                        <Border Grid.Column="3" 
+                                Background="white" 
+                                VerticalAlignment="Center" 
+                                Padding="10,10,10,10"
+                                CornerRadius="10" 
+                                Margin="0">
+                            <StackPanel>
+                                <TextBlock x:Name="executionTimeTextBlock" Text="Waktu Pencarian:" Foreground="black" Margin="3"/>
+                                <TextBlock x:Name="similarityTextBlock" Text="Persentase Kecocokan:" Foreground="black" Margin="3"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+            </StackPanel>
         </StackPanel>
-    </StackPanel>
+
+        <Border x:Name="loading" HorizontalAlignment="Center" Background="#FFFFFF" Height="250" Width="700" CornerRadius="10" Padding="10" Margin="5" BorderBrush="Black" BorderThickness="2">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="avares://src/Assets/loading.gif" Width="150" Height="125" Margin="0,0,0,0"/>
+                <TextBlock Text="LOADING.." Foreground="Black" FontFamily="Courier New" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="notFound" HorizontalAlignment="Center" Background="#FFFFFF" Height="250" Width="700" CornerRadius="10" Padding="10" Margin="5" BorderBrush="Black" BorderThickness="2">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="avares://src/Assets/sad.jpeg" Width="150" Height="125" Margin="0,0,0,0"/>
+                <TextBlock Text="All Matches Under 60% Similarity" Foreground="Black" FontFamily="Courier New" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Button Content="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Click="closeNotFoundPanel" Foreground="white" Background="#900000"/>
+            </StackPanel>
+        </Border>
+    </Grid>
 </UserControl>
