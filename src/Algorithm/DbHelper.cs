@@ -27,7 +27,7 @@ public class PersonRecord
 
 public class DatabaseHelper
 {
-    private string connectionString = "Server=localhost;Database=tubesStima;User=root;Password=Nuel123.";
+    private string connectionString = "Server=localhost;Database=tubesStima;User=root;Password=173146";
 
     public List<ImageRecord> GetAllImages()
     {

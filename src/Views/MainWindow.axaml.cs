@@ -29,6 +29,7 @@ namespace src.Views
         private string fullImageAscii;  // To store the full ASCII representation of the uploaded image
         private readonly ConcurrentBag<(ImageRecord imageEntity, string dbImageAscii)> dbImagesWithAscii = new();  // To store ASCII representations of DB images
 
+    
         public MainWindow()
         {
 
@@ -224,22 +225,38 @@ namespace src.Views
             var person = dbHelper.GetAllPeople().FirstOrDefault(p => AlayMatcher.IsAlayVersion(name, uhm.Decrypt(p.Nama)));
             if (person != null)
             {
-                var details = new TextBlock
-                {
-                    Text = $"Name: {name}\n" +
-                           $"NIK: {uhm.Decrypt(person.NIK)}\n" +
-                           $"Tempat Lahir: {uhm.Decrypt(person.Tempat_lahir)}\n" +
-                           $"Tanggal Lahir: {uhm.Decrypt(person.Tanggal_lahir)}\n" +
-                           $"Jenis Kelamin: {person.Jenis_kelamin}\n" +
-                           $"Golongan Darah: {uhm.Decrypt(person.Golongan_darah)}\n" +
-                           $"Alamat: {uhm.Decrypt(person.Alamat)}\n" +
-                           $"Agama: {uhm.Decrypt(person.Agama)}\n" +
-                           $"Status Perkawinan: {uhm.Decrypt(person.Status_perkawinan)}\n" +
-                           $"Pekerjaan: {uhm.Decrypt(person.Pekerjaan)}\n" +
-                           $"Kewarganegaraan: {uhm.Decrypt(person.Kewarganegaraan)}",
-                    Foreground = Brushes.Black
-                };
-                personDetails.Text = details.Text;
+                namaTitle.Text = "NAMA";
+                namaData.Text = $"{name}";
+                
+                nikTitle.Text = "NIK";
+                nikData.Text = $"{uhm.Decrypt(person.NIK)}";
+                
+                tempatLahirTitle.Text = "TEMPAT LAHIR";
+                tempatLahirData.Text = $"{uhm.Decrypt(person.Tempat_lahir)}";
+                
+                tanggalLahirTitle.Text = "TANGGAL LAHIR";
+                tanggalLahirData.Text = $"{uhm.Decrypt(person.Tanggal_lahir)}";
+                
+                genderTitle.Text = "JENIS KELAMIN";
+                genderData.Text = $"{person.Jenis_kelamin}";
+                
+                goldarTitle.Text = "GOLONGAN DARAH";
+                goldarData.Text = $"{uhm.Decrypt(person.Golongan_darah)}";
+                
+                alamatTitle.Text = "ALAMAT";
+                alamatData.Text = $"{uhm.Decrypt(person.Alamat)}";
+                
+                agamaTitle.Text = "AGAMA";
+                agamaData.Text = $"{uhm.Decrypt(person.Agama)}";
+                
+                kawinTitle.Text = "STATUS\nPERKAWINAN";
+                kawinData.Text = $"{uhm.Decrypt(person.Status_perkawinan)}";
+                
+                pekerjaanTitle.Text = "PEKERJAAN";
+                pekerjaanData.Text = $"{uhm.Decrypt(person.Pekerjaan)}";
+                
+                wargaTitle.Text = "KEWARGANEGARAAN";
+                wargaData.Text = $"{uhm.Decrypt(person.Kewarganegaraan)}";
             }
         }
 
