@@ -17,6 +17,13 @@ class Converter
 
         IntPtr buffer = Marshal.AllocHGlobal(height * stride);
 
+        // Handle width not divisible by 8
+
+        if (width % 8 != 0)
+        {
+            width -= width % 8;
+        }
+
         try
         {
             Avalonia.PixelRect pixelRect = new(0, 0, width, height);

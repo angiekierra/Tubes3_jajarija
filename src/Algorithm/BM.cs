@@ -7,10 +7,14 @@ class BM
         int n = text.Length;
         int m = pattern.Length;
         int i = m - 1;
+
+        // If longer, no match
         if (i > n - 1)
-            return -1; // no match if pattern is longer than text
+            return -1; 
 
         int j = m - 1;
+
+        // Cari sampe ketemu
         do
         {
             if (pattern[j] == text[i])
@@ -18,7 +22,7 @@ class BM
                 if (j == 0)
                     return i; // match
                 else
-                { // looking-glass technique
+                { // Decrement untill start of string
                     i--;
                     j--;
                 }

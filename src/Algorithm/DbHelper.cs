@@ -1,6 +1,8 @@
+using DotNetEnv;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 public class ImageRecord
 {
@@ -27,7 +29,25 @@ public class PersonRecord
 
 public class DatabaseHelper
 {
-    private string connectionString = "Server=localhost;Database=tubesStima;User=root;Password=Nuel123.";
+    private string connectionString;
+    public DatabaseHelper()
+    {
+        // Load environment variables
+        string truncatedBaseDirectory = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.IndexOf("src", StringComparison.Ordinal));
+        Env.Load(Path.Combine(truncatedBaseDirectory, ".env"));
+
+        // Ambil variabel lingkungan
+        string dbHost = Environment.GetEnvironmentVariable("DB_HOST");
+        string dbUser = Environment.GetEnvironmentVariable("DB_USER");
+        string dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+        string dbDatabase = Environment.GetEnvironmentVariable("DB_DATABASE");
+
+
+
+        // Bentuk connection string
+        connectionString = $"Server={dbHost};Database={dbDatabase};User={dbUser};Password={dbPassword};";
+    }
+
 
     public List<ImageRecord> GetAllImages()
     {

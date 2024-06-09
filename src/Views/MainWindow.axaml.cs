@@ -31,11 +31,10 @@ namespace src.Views
 
         public MainWindow()
         {
-
             InitializeComponent();
             SoundPlayer musicPlayer = new SoundPlayer();
             string truncatedBaseDirectory = baseDirectory.Substring(0, baseDirectory.IndexOf("src", StringComparison.Ordinal));
-            musicPlayer.SoundLocation = Path.Combine(truncatedBaseDirectory, "src", "Assets","song.wav");
+            musicPlayer.SoundLocation = Path.Combine(truncatedBaseDirectory, "src", "Assets", "song.wav");
             musicPlayer.PlayLooping();
             DataContext = new MainWindowViewModel();
         }
@@ -76,31 +75,32 @@ namespace src.Views
         {
             if (uploadedImage == null) return;
 
-            var stopwatch = Stopwatch.StartNew();
             string algorithm = BMRadioButton.IsChecked == true ? "BM" : "KMP";
             int numblack;
             bool[] imageBinary;
             string imageAscii;
             // For second and third chance :)
             bool found = false;
+
+            var stopwatch = Stopwatch.StartNew();
             (imageBinary, numblack) = GetSelectedBinary(uploadedImage, "BOTTOM");
 
-            if (numblack > 8)
+            if (numblack > 3)
             {
                 imageAscii = ConvertBinaryToAscii(imageBinary);
-
 
                 var imagesToCompare = dbHelper.GetAllImages();
 
                 found = await SearchForExactMatchAsync(imagesToCompare, imageAscii, algorithm);
             }
 
+
             // Search atas
             if (!found)
             {
                 (imageBinary, numblack) = GetSelectedBinary(uploadedImage, "MOSTBOT");
 
-                if (numblack > 8 && numblack != 103)
+                if (numblack > 3 && numblack != 103)
                 {
                     imageAscii = ConvertBinaryToAscii(imageBinary);
                     found = SearchForExact2(dbImagesWithAscii, imageAscii, algorithm);
@@ -112,7 +112,7 @@ namespace src.Views
             {
                 (imageBinary, numblack) = GetSelectedBinary(uploadedImage, "TOP");
 
-                if (numblack > 8 && numblack != 103)
+                if (numblack > 3 && numblack != 103)
                 {
                     imageAscii = ConvertBinaryToAscii(imageBinary);
                     found = SearchForExact2(dbImagesWithAscii, imageAscii, algorithm);
@@ -126,30 +126,35 @@ namespace src.Views
             }
 
             stopwatch.Stop();
+
             executionTimeTextBlock.Text = $"Waktu Pencarian: {stopwatch.ElapsedMilliseconds} ms";
         }
 
         private async Task<bool> SearchForExactMatchAsync(IEnumerable<ImageRecord> imagesToCompare, string imageAscii, string algorithm)
         {
-            var tasks = imagesToCompare.Select(async imageEntity =>
+            var tasks = new List<Task<(ImageRecord imageEntity, Bitmap dbImage, bool isMatch)>>();
+
+            await Parallel.ForEachAsync(imagesToCompare, async (imageEntity, cancellationToken) =>
             {
                 string imagePath = GetImagePath(imageEntity.BerkasCitra);
                 if (!File.Exists(imagePath))
                 {
                     Console.WriteLine($"File {imagePath} not found.");
-                    return (imageEntity, (Bitmap)null, false);
+                    tasks.Add(Task.FromResult((imageEntity, (Bitmap)null, false)));
+                    return;
                 }
 
                 using var stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
                 var dbImage = new Bitmap(stream);
-                var dbImageBinary = ConvertFullImageToBinary(dbImage);
-                var dbImageAscii = ConvertBinaryToAscii(dbImageBinary);
+
+                var dbImageAscii = ConvertImageToAsciiFull(dbImage);
 
                 dbImagesWithAscii.Add((imageEntity, dbImageAscii));
 
                 int result = algorithm == "BM" ? BmMatch(dbImageAscii, imageAscii) : KmpMatch(dbImageAscii, imageAscii);
 
-                return result != -1 ? (imageEntity, dbImage, true) : (imageEntity, dbImage, false);
+                bool isMatch = result != -1;
+                tasks.Add(Task.FromResult((imageEntity, dbImage, isMatch)));
             });
 
             var results = await Task.WhenAll(tasks);
@@ -195,6 +200,7 @@ namespace src.Views
             {
                 var (imageEntity, dbImageAscii) = item;
                 double similarity = ComputeSimilarity(dbImageAscii, imageAscii);
+
                 lock (lockObject)
                 {
                     if (similarity > maxSimilarity)
