@@ -3,7 +3,7 @@
              x:Class="src.Views.InitialView">
 
     <UserControl.Background>
-        <ImageBrush Source="avares://src/Assets/detective.jpg" Stretch="UniformToFill"/>
+        <ImageBrush Source="avares://src/Assets/detective.png" Stretch="UniformToFill"/>
     </UserControl.Background>
              
     <Grid>

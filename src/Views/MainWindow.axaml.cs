@@ -32,7 +32,9 @@ namespace src.Views
         public MainWindow()
         {
             InitializeComponent();
-
+            string truncatedBaseDirectory = baseDirectory.Substring(0, baseDirectory.IndexOf("src", StringComparison.Ordinal));
+            imageUploaded.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory,"src/Assets/reference.png")) };
+            matchedImage.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory,"src/Assets/result.png")) };
             DataContext = new MainWindowViewModel();
         }
 
@@ -255,7 +257,7 @@ namespace src.Views
                 agamaTitle.Text = "AGAMA";
                 agamaData.Text = $"{uhm.Decrypt(person.Agama)}";
 
-                kawinTitle.Text = "STATUS\nPERKAWINAN";
+                kawinTitle.Text = "STATUS PERKAWINAN";
                 kawinData.Text = $"{uhm.Decrypt(person.Status_perkawinan)}";
 
                 pekerjaanTitle.Text = "PEKERJAAN";

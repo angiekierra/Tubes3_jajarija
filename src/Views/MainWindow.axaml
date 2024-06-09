@@ -52,57 +52,57 @@
 
                                 <TextBlock x:Name="namaTitle" Grid.Row="0" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="NAMA" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="0" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="namaData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="namaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold" />
                                 </Border>
 
                                 <TextBlock x:Name="nikTitle" Grid.Row="1" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="NIK" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="nikData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="nikData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="tempatLahirTitle" Grid.Row="2" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="TEMPAT LAHIR" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="2" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="tempatLahirData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="tempatLahirData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="tanggalLahirTitle" Grid.Row="3" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="TANGGAL LAHIR" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="3" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="tanggalLahirData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="tanggalLahirData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="genderTitle" Grid.Row="4" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="JENIS KELAMIN" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="4" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="genderData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="genderData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="goldarTitle" Grid.Row="5" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="GOLONGAN DARAH" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="5" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="goldarData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="goldarData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="alamatTitle" Grid.Row="6" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="ALAMAT" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="6" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="alamatData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="alamatData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="agamaTitle" Grid.Row="7" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="AGAMA" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="7" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="agamaData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="agamaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="kawinTitle" Grid.Row="8" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="STATUS PERKAWINAN" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="8" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="kawinData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="kawinData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="pekerjaanTitle" Grid.Row="9" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="PEKERJAAN" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="9" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="pekerjaanData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="pekerjaanData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
 
                                 <TextBlock x:Name="wargaTitle" Grid.Row="10" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="KEWARGANEGARAAN" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="10" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
-                                    <TextBlock x:Name="wargaData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
+                                    <TextBlock x:Name="wargaData" Foreground="Black" FontFamily="Courier New" FontSize="12" FontWeight="Bold"/>
                                 </Border>
                             </Grid>
                         </StackPanel>
