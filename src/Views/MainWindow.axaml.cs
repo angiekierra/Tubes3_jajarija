@@ -21,7 +21,7 @@ using System.Text;
 
 namespace src.Views
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : UserControl
     {
         public Bitmap uploadedImage;
         private readonly DatabaseHelper dbHelper = new();
@@ -32,10 +32,7 @@ namespace src.Views
         public MainWindow()
         {
             InitializeComponent();
-            SoundPlayer musicPlayer = new SoundPlayer();
-            string truncatedBaseDirectory = baseDirectory.Substring(0, baseDirectory.IndexOf("src", StringComparison.Ordinal));
-            musicPlayer.SoundLocation = Path.Combine(truncatedBaseDirectory, "src", "Assets", "song.wav");
-            musicPlayer.PlayLooping();
+
             DataContext = new MainWindowViewModel();
         }
 
@@ -48,7 +45,9 @@ namespace src.Views
                 MimeTypes = new[] { "image/BMP" }
             };
 
-            var selectedFiles = await this.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
+            var topLevel = TopLevel.GetTopLevel(this);
+
+            var selectedFiles = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
             {
                 AllowMultiple = false,
                 FileTypeFilter = new[] { customBMPFileType },
@@ -74,6 +73,7 @@ namespace src.Views
         private async void OnSearchClicked(object sender, RoutedEventArgs e)
         {
             if (uploadedImage == null) return;
+            EnableSearchButtonIfReady();
 
             string algorithm = BMRadioButton.IsChecked == true ? "BM" : "KMP";
             int numblack;
@@ -126,6 +126,7 @@ namespace src.Views
             }
 
             stopwatch.Stop();
+            EnableSearchButtonIfReady();
 
             executionTimeTextBlock.Text = $"Waktu Pencarian: {stopwatch.ElapsedMilliseconds} ms";
         }
@@ -230,22 +231,38 @@ namespace src.Views
             var person = dbHelper.GetAllPeople().FirstOrDefault(p => AlayMatcher.IsAlayVersion(name, uhm.Decrypt(p.Nama)));
             if (person != null)
             {
-                var details = new TextBlock
-                {
-                    Text = $"Name: {name}\n" +
-                           $"NIK: {uhm.Decrypt(person.NIK)}\n" +
-                           $"Tempat Lahir: {uhm.Decrypt(person.Tempat_lahir)}\n" +
-                           $"Tanggal Lahir: {uhm.Decrypt(person.Tanggal_lahir)}\n" +
-                           $"Jenis Kelamin: {person.Jenis_kelamin}\n" +
-                           $"Golongan Darah: {uhm.Decrypt(person.Golongan_darah)}\n" +
-                           $"Alamat: {uhm.Decrypt(person.Alamat)}\n" +
-                           $"Agama: {uhm.Decrypt(person.Agama)}\n" +
-                           $"Status Perkawinan: {uhm.Decrypt(person.Status_perkawinan)}\n" +
-                           $"Pekerjaan: {uhm.Decrypt(person.Pekerjaan)}\n" +
-                           $"Kewarganegaraan: {uhm.Decrypt(person.Kewarganegaraan)}",
-                    Foreground = Brushes.Black
-                };
-                personDetails.Text = details.Text;
+                namaTitle.Text = "NAMA";
+                namaData.Text = $"{name}";
+
+                nikTitle.Text = "NIK";
+                nikData.Text = $"{uhm.Decrypt(person.NIK)}";
+
+                tempatLahirTitle.Text = "TEMPAT LAHIR";
+                tempatLahirData.Text = $"{uhm.Decrypt(person.Tempat_lahir)}";
+
+                tanggalLahirTitle.Text = "TANGGAL LAHIR";
+                tanggalLahirData.Text = $"{uhm.Decrypt(person.Tanggal_lahir)}";
+
+                genderTitle.Text = "JENIS KELAMIN";
+                genderData.Text = $"{person.Jenis_kelamin}";
+
+                goldarTitle.Text = "GOLONGAN DARAH";
+                goldarData.Text = $"{uhm.Decrypt(person.Golongan_darah)}";
+
+                alamatTitle.Text = "ALAMAT";
+                alamatData.Text = $"{uhm.Decrypt(person.Alamat)}";
+
+                agamaTitle.Text = "AGAMA";
+                agamaData.Text = $"{uhm.Decrypt(person.Agama)}";
+
+                kawinTitle.Text = "STATUS\nPERKAWINAN";
+                kawinData.Text = $"{uhm.Decrypt(person.Status_perkawinan)}";
+
+                pekerjaanTitle.Text = "PEKERJAAN";
+                pekerjaanData.Text = $"{uhm.Decrypt(person.Pekerjaan)}";
+
+                wargaTitle.Text = "KEWARGANEGARAAN";
+                wargaData.Text = $"{uhm.Decrypt(person.Kewarganegaraan)}";
             }
         }
 

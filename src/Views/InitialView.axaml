@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="src.Views.InitialView">
+
+    <UserControl.Background>
+        <ImageBrush Source="avares://src/Assets/detective.jpg" Stretch="UniformToFill"/>
+    </UserControl.Background>
+             
+    <Grid>
+        <Button Content="Start Investigating !" HorizontalAlignment="Center" VerticalAlignment="Center" Click="OnOpenDetailedViewClicked" Foreground="white" Background="#900000"/>
+    </Grid>
+</UserControl>

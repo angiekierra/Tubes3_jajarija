@@ -324,3 +324,8 @@ C:\Users\Imanuel Girsang\OneDrive - Institut Teknologi Bandung\Documents\IF-Gene
 C:\Users\Imanuel Girsang\OneDrive - Institut Teknologi Bandung\Documents\IF-General\Semester-4\Stima\Tubes\NewTubes3\Tubes3_jajarija\Converter\obj\Debug\net8.0\Converter.pdb
 C:\Users\Imanuel Girsang\OneDrive - Institut Teknologi Bandung\Documents\IF-General\Semester-4\Stima\Tubes\NewTubes3\Tubes3_jajarija\Converter\obj\Debug\net8.0\Converter.genruntimeconfig.cache
 C:\Users\Imanuel Girsang\OneDrive - Institut Teknologi Bandung\Documents\IF-General\Semester-4\Stima\Tubes\NewTubes3\Tubes3_jajarija\Converter\obj\Debug\net8.0\ref\Converter.dll
+C:\Users\Angelica Gurning\Documents\Kuliah\SEM4\STIMA\Tubes 3\Tubes3_jajarija\Converter\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\Angelica Gurning\Documents\Kuliah\SEM4\STIMA\Tubes 3\Tubes3_jajarija\Converter\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Angelica Gurning\Documents\Kuliah\SEM4\STIMA\Tubes 3\Tubes3_jajarija\Converter\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Angelica Gurning\Documents\Kuliah\SEM4\STIMA\Tubes 3\Tubes3_jajarija\Converter\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Angelica Gurning\Documents\Kuliah\SEM4\STIMA\Tubes 3\Tubes3_jajarija\Converter\bin\Debug\net8.0\Sprache.dll
