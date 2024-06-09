@@ -34,6 +34,7 @@ namespace src.Views
             InitializeComponent();
 
             DataContext = new MainWindowViewModel();
+            answersData.IsVisible = false;
         }
 
         private async void OnImageUploadClicked(object sender, RoutedEventArgs e)
@@ -72,8 +73,10 @@ namespace src.Views
 
         private async void OnSearchClicked(object sender, RoutedEventArgs e)
         {
+            answersData.IsVisible = false;
+            matchedImage.Fill = new SolidColorBrush(Color.Parse("#917859"));
             if (uploadedImage == null) return;
-            EnableSearchButtonIfReady();
+            SearchButton.IsEnabled = false;
 
             string algorithm = BMRadioButton.IsChecked == true ? "BM" : "KMP";
             int numblack;
@@ -126,7 +129,7 @@ namespace src.Views
             }
 
             stopwatch.Stop();
-            EnableSearchButtonIfReady();
+            SearchButton.IsEnabled = true;
 
             executionTimeTextBlock.Text = $"Waktu Pencarian: {stopwatch.ElapsedMilliseconds} ms";
         }
@@ -226,6 +229,7 @@ namespace src.Views
 
         private void DisplayPersonDetails(string name)
         {
+            answersData.IsVisible = true;
             byte[] key = Encoding.UTF8.GetBytes("tubesstimaterakhirohyeah12345678");
             AES uhm = new AES(key);
             var person = dbHelper.GetAllPeople().FirstOrDefault(p => AlayMatcher.IsAlayVersion(name, uhm.Decrypt(p.Nama)));
@@ -255,7 +259,7 @@ namespace src.Views
                 agamaTitle.Text = "AGAMA";
                 agamaData.Text = $"{uhm.Decrypt(person.Agama)}";
 
-                kawinTitle.Text = "STATUS\nPERKAWINAN";
+                kawinTitle.Text = "STATUS PERKAWINAN";
                 kawinData.Text = $"{uhm.Decrypt(person.Status_perkawinan)}";
 
                 pekerjaanTitle.Text = "PEKERJAAN";

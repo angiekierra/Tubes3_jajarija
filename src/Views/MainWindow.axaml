@@ -30,8 +30,8 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Image Source="avares://src/Assets/biodata.png" Stretch="UniformToFill"/>
-                        <StackPanel Margin="0,40,0,0">
-                            <Grid Margin="15">
+                        <StackPanel Margin="0,40,0,0" >
+                            <Grid Margin="15" x:Name="answersData" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
@@ -50,7 +50,7 @@
                                     <ColumnDefinition Width="0.6*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock x:Name="namaTitle" Grid.Row="0" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="NAMA" Padding="5" Margin="0,5,0,0"/>
+                                <TextBlock x:Name="namaTitle" Grid.Row="0" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="NAMA" Padding="5" Margin="0,5,0,0" />
                                 <Border Grid.Row="0" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
                                     <TextBlock x:Name="namaData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
                                 </Border>
@@ -90,7 +90,7 @@
                                     <TextBlock x:Name="agamaData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
                                 </Border>
 
-                                <TextBlock x:Name="kawinTitle" Grid.Row="8" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="STATUS PERKAWINAN" Padding="5" Margin="0,5,0,0"/>
+                                <TextBlock x:Name="kawinTitle" Grid.Row="8" Grid.Column="0" Foreground="Black" FontFamily="Courier New" FontWeight="Bold" FontSize="14" Text="PERKAWINAN" Padding="5" Margin="0,5,0,0"/>
                                 <Border Grid.Row="8" Grid.Column="1" Background="White" CornerRadius="10" Padding="5" Margin="5">
                                     <TextBlock x:Name="kawinData" Foreground="Black" FontFamily="Courier New" FontSize="12"/>
                                 </Border>
