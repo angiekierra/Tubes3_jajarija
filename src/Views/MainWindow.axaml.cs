@@ -33,8 +33,8 @@ namespace src.Views
         {
             InitializeComponent();
             string truncatedBaseDirectory = baseDirectory.Substring(0, baseDirectory.IndexOf("src", StringComparison.Ordinal));
-            imageUploaded.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory,"src/Assets/reference.png")) };
-            matchedImage.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory,"src/Assets/result.png")) };
+            imageUploaded.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory, "src/Assets/reference.png")) };
+            matchedImage.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory, "src/Assets/result.png")) };
             DataContext = new MainWindowViewModel();
             answersData.IsVisible = false;
             loading.IsVisible = false;
@@ -64,6 +64,10 @@ namespace src.Views
                 using var stream = await selectedFiles[0].OpenReadAsync();
                 uploadedImage = new Bitmap(stream);
                 imageUploaded.Fill = new ImageBrush { Source = uploadedImage };
+                string truncatedBaseDirectory = baseDirectory.Substring(0, baseDirectory.IndexOf("src", StringComparison.Ordinal));
+                matchedImage.Fill = new ImageBrush { Source = new Bitmap(Path.Combine(truncatedBaseDirectory, "src/Assets/result.png")) };
+
+
                 EnableSearchButtonIfReady();
             }
         }
@@ -283,7 +287,8 @@ namespace src.Views
             return Path.Combine(truncatedBaseDirectory, "test", "Real", imageName);
         }
 
-        private void closeNotFoundPanel(object sender, RoutedEventArgs e){
+        private void closeNotFoundPanel(object sender, RoutedEventArgs e)
+        {
             notFound.IsVisible = false;
         }
     }

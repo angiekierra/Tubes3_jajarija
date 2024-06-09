@@ -8366,19 +8366,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Angelica Gurning\\.nuget\\packages\\": {}
+    "C:\\Users\\Imanuel Girsang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\src.csproj",
+      "projectUniqueName": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\src.csproj",
       "projectName": "src",
-      "projectPath": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\src.csproj",
-      "packagesPath": "C:\\Users\\Angelica Gurning\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Angelica Gurning\\Documents\\Kuliah\\SEM4\\STIMA\\Tubes 3\\Tubes3_jajarija\\src\\obj\\",
+      "projectPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\src.csproj",
+      "packagesPath": "C:\\Users\\Imanuel Girsang\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Imanuel Girsang\\OneDrive - Institut Teknologi Bandung\\Documents\\IF-General\\Semester-4\\Stima\\Tubes\\NewTubes3\\Tubes3_jajarija\\src\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Angelica Gurning\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Imanuel Girsang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8398,6 +8398,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8457,7 +8462,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
